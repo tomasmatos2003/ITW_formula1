@@ -1,0 +1,833 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>F1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="f1.css" rel="stylesheet" />
+    <link href="driver.css" rel="stylesheet" />
+
+    <style>
+
+
+
+
+
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        .flip-card-container {
+            --hue: 150;
+            --primary: hsl(var(--hue), 50%, 50%);
+            --white-1: hsl(0, 0%, 90%);
+            --white-2: hsl(0, 0%, 80%);
+            --dark: hsl(var(--hue), 25%, 10%);
+            --grey: hsl(0, 0%, 50%);
+            width: 310px;
+            height: 500px;
+            margin: 40px;
+            perspective: 1000px;
+        }
+
+
+        .flip-card {
+            width: inherit;
+            height: inherit;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: .6s .1s;
+        }
+
+
+        .flip-card-container:hover .flip-card,
+        .flip-card-container:focus-within .flip-card {
+            transform: rotateY(180deg);
+        }
+
+
+        .card-front,
+        .card-back {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            background: var(--dark);
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .card-front {
+            transform: rotateY(0deg);
+            z-index: 2;
+        }
+
+
+        .card-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+
+        figure {
+            z-index: -1;
+        }
+
+
+        figure,
+        .img-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .img_ {
+            height: 100%;
+            border-radius: 24px;
+        }
+
+        figcaption {
+            display: block;
+            width: auto;
+            margin-top: 12%;
+            padding: 8px 22px;
+            font-weight: bold;
+            line-height: 1.6;
+            letter-spacing: 2px;
+            word-spacing: 6px;
+            text-align: right;
+            position: absolute;
+            top: 0;
+            right: 12px;
+            color: var(--white-1);
+            background: hsla(var(--hue), 25%, 10%, .5);
+        }
+
+
+        .img-bg {
+            background: hsla(var(--hue), 25%, 10%, .5);
+        }
+
+        .card-front .img-bg {
+            clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0 100%);
+        }
+
+            .card-front .img-bg::before {
+                content: "";
+                position: absolute;
+                top: 34%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(18deg);
+                width: 100%;
+                height: 6px;
+                border: 1px solid var(--primary);
+                border-left-color: transparent;
+                border-right-color: transparent;
+                transition: .1s;
+            }
+
+        .card-back .img-bg {
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 60%);
+        }
+
+
+        .flip-card-container:hover .card-front .img-bg::before {
+            width: 6px;
+            border-left-color: var(--primary);
+            border-right-color: var(--primary);
+        }
+
+
+        .ul_ {
+            padding-top: 50%;
+            margin: 0 auto;
+            width: 70%;
+            height: 100%;
+            list-style: none;
+            color: var(--white-1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+        .li_ {
+            width: 100%;
+            margin-top: 12px;
+            padding-bottom: 12px;
+            font-size: 14px;
+            text-align: center;
+            position: relative;
+        }
+
+            .li_:nth-child(2n) {
+                color: var(--white-2);
+            }
+
+            .li_:not(:last-child)::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: currentColor;
+                opacity: .2;
+            }
+
+
+        button {
+            font-family: inherit;
+            font-weight: bold;
+            color: var(--white-1);
+            letter-spacing: 2px;
+            padding: 9px 20px;
+            border: 1px solid var(--grey);
+            border-radius: 1000px;
+            background: transparent;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+            button:hover,
+            button:focus {
+                color: var(--primary);
+                background: hsla(var(--hue), 25%, 10%, .2);
+                border-color: currentColor;
+            }
+
+            button:active {
+                transform: translate(2px);
+            }
+
+
+        .design-container {
+            --tr: 90;
+            --op: .5;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        /* .design */
+        .design {
+            display: block;
+            background: var(--grey);
+            position: absolute;
+            opacity: var(--op);
+            transition: .3s;
+        }
+
+        .design--1,
+        .design--2,
+        .design--3,
+        .design--4 {
+            width: 1px;
+            height: 100%;
+        }
+
+        .design--1,
+        .design--2 {
+            top: 0;
+            transform: translateY(calc((var(--tr) - (var(--tr) * 2)) * 1%))
+        }
+
+        .design--1 {
+            left: 20%;
+        }
+
+        .design--2 {
+            left: 80%;
+        }
+
+        .design--3,
+        .design--4 {
+            bottom: 0;
+            transform: translateY(calc((var(--tr) + (var(--tr) - var(--tr))) * 1%))
+        }
+
+        .design--3 {
+            left: 24%;
+        }
+
+        .design--4 {
+            left: 76%;
+        }
+
+        .design--5,
+        .design--6,
+        .design--7,
+        .design--8 {
+            width: 100%;
+            height: 1px;
+        }
+
+        .design--5,
+        .design--6 {
+            left: 0;
+            transform: translateX(calc((var(--tr) - (var(--tr) * 2)) * 1%));
+        }
+
+        .design--5 {
+            top: 41%;
+        }
+
+        .design--6 {
+            top: 59%;
+        }
+
+        .design--7,
+        .design--8 {
+            right: 0;
+            transform: translateX(calc((var(--tr) + (var(--tr) - var(--tr))) * 1%))
+        }
+
+        .design--7 {
+            top: 44%;
+        }
+
+        .design--8 {
+            top: 56%;
+        }
+
+
+        button:hover + .design-container,
+        button:active + .design-container,
+        button:focus + .design-container {
+            --tr: 20;
+            --op: .7;
+        }
+
+        .abs-site-link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: hsla(0, 0%, 100%, .6);
+            font-size: 16px;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+    </style>
+</head>
+<body style="overflow-x:hidden">
+
+    <div class="row" style="background-color:white">
+        <div class="col-lg-4 col-md-4 col-sm-6" style="padding:30px 120px; height:80px">
+            <a class="logColor" href="https://www.facebook.com/Formula1/" style="margin-right:20px"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://www.instagram.com/f1" style="margin-right:20px"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://www.youtube.com/channel/UCB_qr75-ydFVKSF9Dmo6izg" style="margin-right:20px"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://twitter.com/f1" style="margin-right:20px"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://www.snapchat.com/add/f1" style="margin-right:20px"><i class="fa fa-snapchat" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6" style="padding:5px 190px; height:80px">
+
+            <a href="f1.html"><img src="img/f1logo.png" style="width: 80px; height: 80px;" /></a>
+
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="input-group" style="padding:10px 80px">
+                <div style="padding: 10px 30px">
+                    <a href="favoritos.html"><i class="fa fa-heart text-danger"></i></a>
+                </div>
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" />
+                    <label class="form-label" for="form1"></label>
+                </div>
+                <button type="button" class="btn btn-danger" style="height:38px">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="navbar1">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%">
+            <div class="container">
+                <div style="margin-right: 30px">
+                    <a class="navbar-brand">
+                        <a href="f1.html"><img src="img/f1carro.png" style="width: 80px; height: 80px;" /></a>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style=" padding:10px 60px">
+                            <a class="nav-link active " aria-current="page" href="f1.html">News</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 60px">
+                            <a class="nav-link" href="Teams.html">Teams</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 60px">
+                            <a class="nav-link " href="driver1.html">Drivers</a>
+                        </li>
+                        <li class="nav-item dropdown" style="padding: 10px 60px">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Races
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Races.html">All Time Races</a></li>
+                                <li><a class="dropdown-item" href="Circuitos.html">Circuits Races</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="nav-item" style=" padding: 10px 40px">
+                            <a class="nav-link" href="statistics.html">Statistics</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 40px ">
+                            <a class="nav-link" href="outrosCountries.html">Others</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 65px; border-right:1px solid; ">
+                            <a class="nav-link" href="bets.html">Bets</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div style="background-image: url('img/back (2).jpg') ">
+        <div class="row" style="border-radius: 20px" id="roww">
+            <div class=" col" id="coll">
+                <div class="racer1" style="padding-top:100px; padding-left: 300px">
+                    <div class="flip-card-container" style="--hue: 220">
+                        <div class="flip-card">
+
+                            <div class="card-front">
+                                <figure>
+                                    <div class="img-bg"></div>
+                                    <img src="condutores/1.jpg" alt="Brohm Lake" class="img_" id="racer1">
+                                    <figcaption id="nome1">Lewis Hamilton</figcaption>
+                                </figure>
+
+                            </div>
+
+                            <div class="card-back">
+                                <figure>
+                                    <div class="img-bg"></div>
+                                    <img src="condutores/2.jpg" alt="Brohm Lake">
+                                </figure>
+
+                                <a href="driverDetails.html?id=1" id="but"><button>Details</button></a>
+
+                                <div class="design-container">
+                                    <span class="design design--1"></span>
+                                    <span class="design design--2"></span>
+                                    <span class="design design--3"></span>
+                                    <span class="design design--4"></span>
+                                    <span class="design design--5"></span>
+                                    <span class="design design--6"></span>
+                                    <span class="design design--7"></span>
+                                    <span class="design design--8"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="racer2">
+                    <div class="container">
+                        <div class="row" style="border-radius: 20px" id="roww">
+                            <div class=" col" id="coll">
+                                <div class="racer1" style="padding: 100px;">
+                                    <div class="flip-card-container" style="--hue: 220">
+                                        <div class="flip-card">
+
+                                            <div class="card-front">
+                                                <figure>
+                                                    <div class="img-bg"></div>
+                                                    <img src="condutores/2.jpg" alt="Brohm Lake" class="img_" id="racer2">
+                                                    <figcaption id="nome2">Valtteri Bottas</figcaption>
+                                                </figure>
+
+                                            </div>
+
+                                            <div class="card-back">
+                                                <figure>
+                                                    <div class="img-bg"></div>
+                                                    <img src="condutores/2.jpg" alt="Brohm Lake">
+                                                </figure>
+
+                                                <a href="driverDetails.html?id=822" id="but1"><button>Details</button></a>
+
+                                                <div class="design-container">
+                                                    <span class="design design--1"></span>
+                                                    <span class="design design--2"></span>
+                                                    <span class="design design--3"></span>
+                                                    <span class="design design--4"></span>
+                                                    <span class="design design--5"></span>
+                                                    <span class="design design--6"></span>
+                                                    <span class="design design--7"></span>
+                                                    <span class="design design--8"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container" style="padding-top: 50px;">
+        <div class="row">
+            <div class="card-group">
+                <div class="card img" style="border: 0px">
+                    <div class="animation" onclick="appear(1)" id="card1">
+                        <img src="logos/logo1.png" class="card-img-top" id="logo1" alt="...">
+                    </div>
+                </div>
+                <div class="card img 1" style="border: 0px">
+                    <div class="animation" onclick="appear(2)" id="card2">
+                        <img src="logos/logo2.png" class="card-img-top" id="logo2" alt="...">
+
+                    </div>
+                </div>
+
+                <div class="card img 2" style="border: 0px">
+                    <div class="animation" onclick="appear(3)" id="card3">
+                        <img src="logos/logo3.jpg" class="card-img-top" id="logo3" alt="...">
+                    </div>
+
+                </div>
+
+                <div class="card img 3" onclick="appear(4)" id="card4" style="border: 0px">
+                    <div class="animation">
+                        <img src="logos/logo4.png" class="card-img-top" id="logo4" alt="...">
+                    </div>
+
+                </div>
+
+                <div class="card img 4" style="border: 0px">
+                    <div class="animation" onclick="appear(5)" id="card5">
+                        <img src="logos/logo5.png" class="card-img-top" id="logo5" alt="...">
+                    </div>
+
+                </div>
+
+                <div class="card img 5" style="border: 0px">
+                    <div class="animation" onclick="appear(6)" id="card6">
+                        <img src="logos/logo6.png" class="card-img-top" id="logo6" alt="...">
+                    </div>
+
+                </div>
+
+                <div class="card img 6" onclick="appear(7)" id="card7" style="border: 0px">
+                    <div class="animation">
+                        <img src="logos/logo7.jpg" class="card-img-top" id="logo7" alt="...">
+                    </div>
+
+                </div>
+
+                <div class="card img 7" onclick="appear(8)" id="card8" style="border: 0px">
+                    <div class="animation">
+                        <img src="logos/logo8.png" class="card-img-top" id="logo7" alt="...">
+                    </div>
+
+                </div>
+
+                <div class="card img 8" onclick="appear(9)" id="card9" style="border: 0px">
+                    <div class="animation">
+                        <img src="logos/logo9.jpg" class="card-img-top" id="logo9" alt="...">
+                    </div>
+
+                </div>
+
+                <div class="card img 9" onclick="appear(10)" id="card10" style="border: 0px">
+                    <div class="animation">
+                        <img src="logos/logo10.jpg" class="card-img-top" id="logo10" alt="...">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="margin-bottom:30px; padding: 30px 650px; ">
+        <a href="drivers.html">
+            <button class="btn btn-danger">
+                All time drivers
+            </button>
+        </a>
+    </div>
+    <hr />
+    <footer class="text-center text-lg-start bg-white text-muted">
+
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4" style="margin-top:30px">
+                        <i class="fas fa-gem me-3"></i>
+                    </h6>
+                    <div>
+                        <iframe width="350" height="280" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=-8.662963807582857%2C40.63158680486605%2C-8.656767904758455%2C40.634114924693606&amp;layer=mapnik&amp;marker=40.63285291226819%2C-8.659527897834778"
+                                style="border: 1px solid black"></iframe><br />
+                        <small>
+                            <a href="https://www.openstreetmap.org/?mlat=40.63285&amp;mlon=-8.65953#map=19/40.63285/-8.65953"
+                               target="_blank">View Larger Map</a>
+                        </small>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <h6 class="text-uppercase fw-bold mb-4" style="margin-top:30px">
+                        Partners
+                    </h6>
+                    <p>
+                        <img src="partners/crypto.png" style="height:75px" />
+                    </p>
+                    <p>
+                        <img src="partners/dhl.png" style="height:75px" />
+                    </p>
+                    <p>
+                        <img src="partners/emrates.png" style="height:75px" />
+                    </p>
+
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 py-5">
+
+
+                    <p>
+                        <img src="partners/heineken.png" style="height: 75px" />
+                    </p>
+                    <p>
+                        <img src="partners/pirelli.png" style="height: 75px" />
+
+                    </p>
+                    <p>
+                        <img src="partners/rolex.png" style="height: 75px" />
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            <center>Feito com muito &#128150; por Tomás e Gonçalo </center>
+            © 2022
+            <a style="color: grey;" href="https://www.ua.pt">Universidade de Aveiro</a>
+
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+            integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
+            crossorigin="anonymous"></script>
+    <script>
+        function appear(x) {
+            var but = document.getElementById("but")
+            var but1 = document.getElementById("but1")
+            switch (x) {
+                case 1:
+                    document.getElementById("racer1").src = "condutores/1.jpg";
+                    document.getElementById("racer2").src = "condutores/2.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    oDiv.innerHTML = "Lewis Hamilton";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Valtteri Bottas";
+                    break;
+                case 2:
+                    document.getElementById("racer1").src = "condutores/9.jpg";
+                    document.getElementById("racer2").src = "condutores/10.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    oDiv.innerHTML = "Fernando Alonso";
+                    but.setAttribute("href", "driverDetails.html?id=4")
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Esteban Ocon";
+                    but1.setAttribute("href", "driverDetails.html?id=839")
+                    break;
+                case 3:
+                    document.getElementById("racer1").src = "condutores/3.jpg"
+                    document.getElementById("racer2").src = "condutores/4.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=50")
+                    oDiv.innerHTML = "Max Verstappen";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Sergio Perez";
+                    but1.setAttribute("href", "driverDetails.html?id=815")
+                    break;
+                case 4:
+                    document.getElementById("racer1").src = "condutores/5.jpg";
+                    document.getElementById("racer2").src = "condutores/6.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=844")
+                    oDiv.innerHTML = "Charles Leclerc";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Carlos Sainz";
+                    but1.setAttribute("href", "driverDetails.html?id=832")
+                    break;
+                case 5:
+                    document.getElementById("racer1").src = "condutores/11.jpg";
+                    document.getElementById("racer2").src = "condutores/12.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=842")
+                    oDiv.innerHTML = "Pierre Gasly";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Yuki Tsunoda";
+                    but1.setAttribute("href", "driverDetails.html?id=852")
+                    break;
+                case 6:
+                    document.getElementById("racer1").src = "condutores/13.jpg";
+                    document.getElementById("racer2").src = "condutores/14.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=20")
+                    oDiv.innerHTML = "Sebastian Vettel";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Lance Stroll";
+                    but1.setAttribute("href", "driverDetails.html?id=840")
+                    break;
+                case 7:
+                    document.getElementById("racer1").src = "condutores/7.jpg";
+                    document.getElementById("racer2").src = "condutores/8.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=817")
+                    oDiv.innerHTML = "Daniel Ricciardo";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Lando Norris";
+                    but1.setAttribute("href", "driverDetails.html?id=846")
+                    break;
+                case 8:
+
+                    document.getElementById("racer1").src = "condutores/19.jpg";
+                    document.getElementById("racer2").src = "condutores/20.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=854")
+                    oDiv.innerHTML = "Mick Schumacher";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Nikita Mazepin";
+                    but1.setAttribute("href", "driverDetails.html?id=853")
+                    break;
+                case 9:
+                    document.getElementById("racer1").src = "condutores/15.jpg";
+                    document.getElementById("racer2").src = "condutores/16.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=847")
+                    oDiv.innerHTML = "George Russell";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Nicholas Latifi";
+                    but1.setAttribute("href", "driverDetails.html?id=849")
+                    break;
+                case 10:
+                    document.getElementById("racer1").src = "condutores/17.jpg";
+                    document.getElementById("racer2").src = "condutores/18.jpg";
+                    var oDiv = document.getElementById("nome1");
+                    but.setAttribute("href", "driverDetails.html?id=8")
+                    oDiv.innerHTML = "Kimi Raikkonen";
+                    var oDiv = document.getElementById("nome2");
+                    oDiv.innerHTML = "Antonio Giovinazzi";
+                    but1.setAttribute("href", "driverDetails.html?id=841")
+                    break;
+
+            }
+        };
+        $(document).ready(function () {
+            $("#form1").autocomplete({
+                minLength: 3,
+                maxShowItems: 5,
+                source: function (request, response) {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://192.168.160.58/Formula1/api/Search/All?q=" + $("#form1").val(),
+                        dataType: "json",
+                        success: function (data) {
+                            var lista = [];
+                            console.log(data)
+                            var l = data.length
+                            for (var i = 0; i < l; i++) {
+                                lista.push({
+                                    source: data[i].Source,
+                                    label: data[i].Text,
+                                    Id: data[i].Id,
+                                })
+                            }
+                            console.log(lista)
+                            response(lista);
+                        },
+                        error: function (result) {
+                            alert(result.statusText);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    console.log(ui.item.Id)
+                    switch (ui.item.source) {
+                        case "Driver":
+                            window.location.href = './driverDetails.html?id=' + ui.item.Id //link de details
+                            break;
+                        case "Race":
+                            window.location.href = "./raceDetails.html?id=" + ui.item.Id
+                            break
+                        case "Circuit":
+                            window.location.href = "./circuitDetails.html?id=" + ui.item.Id;
+                            break
+
+                        case "Constructor":
+                            window.location.href = "./TeamsDetails.html?id=" + ui.item.Id;
+                            break
+
+
+                    }
+
+                }
+
+            });
+
+
+        });
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

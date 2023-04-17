@@ -1,0 +1,60 @@
+﻿.cabeca {
+    background-color: white;
+    color: white;
+    height: 85px;
+    
+    
+}
+
+.log {
+    padding: 20px 80px;
+    width: 33%;
+    float: left;
+   
+}
+
+.log1 {
+    float: left;
+    margin-left: 11%;
+    color: red;
+}
+
+.logColor {
+    color: red;
+}
+
+.img1 {
+    width: 34%;
+    padding: 1px 250px;
+    float: left;
+   
+}
+
+.form1 {
+    width: 33%;
+    padding: 20px 90px;
+    float: right;
+}
+
+.navbar1 {
+    width:100%;
+    float: left;
+}
+
+li {
+    border-left: 1px solid;
+   
+}
+
+.Logos {
+    width: 25%;
+    float: left;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 30px;
+}
+
+
+body{
+    overflow-x:hidden
+}

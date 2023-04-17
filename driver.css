@@ -1,0 +1,77 @@
+﻿#logo1 {
+    transition: transform 1s
+}
+
+#logo2 {
+    transition: transform 1s
+}
+
+#logo3 {
+    transition: transform 1s
+}
+
+#logo4 {
+    transition: transform 1s
+}
+
+#logo5 {
+    transition: transform 1s
+}
+
+#logo6 {
+    transition: transform 1s
+}
+
+#logo7 {
+    transition: transform 1s
+}
+
+#logo9 {
+    transition: transform 1s
+}
+
+#logo10 {
+    transition: transform 1s
+}
+
+
+
+.animation:hover #logo1 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo2 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo3 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo4 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo5 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo6 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo7 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo8 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo9 {
+    transform: translateY(-50%)
+}
+
+.animation:hover #logo10 {
+    transform: translateY(-50%)
+}

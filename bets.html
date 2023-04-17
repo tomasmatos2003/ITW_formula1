@@ -1,0 +1,1662 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>F1</title>
+    <title>F1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="f1.css" rel="stylesheet" />
+</head>
+
+<body style="overflow-x:hidden">
+    <div class="row" style="background-color:white">
+        <div class="col-lg-4 col-md-4 col-sm-6" style="padding:30px 120px; height:80px">
+            <a class="logColor" href="https://www.facebook.com/Formula1/" style="margin-right:20px"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://www.instagram.com/f1" style="margin-right:20px"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://www.youtube.com/channel/UCB_qr75-ydFVKSF9Dmo6izg" style="margin-right:20px"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://twitter.com/f1" style="margin-right:20px"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a class="logColor" href="https://www.snapchat.com/add/f1" style="margin-right:20px"><i class="fa fa-snapchat" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6" style="padding:5px 190px; height:80px">
+
+            <a href="f1.html"><img src="img/f1logo.png" style="width: 80px; height: 80px;" /></a>
+
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="input-group" style="padding:10px 80px">
+                <div style="padding: 10px 30px">
+                    <a href="favoritos.html"><i class="fa fa-heart text-danger"></i></a>
+                </div>
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" />
+                    <label class="form-label" for="form1"></label>
+                </div>
+                <button type="button" class="btn btn-danger" style="height:38px">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="navbar1">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%">
+            <div class="container">
+                <div style="margin-right: 30px">
+                    <a class="navbar-brand">
+                        <a href="f1.html"><img src="img/f1carro.png" style="width: 80px; height: 80px;" /></a>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style=" padding:10px 60px">
+                            <a class="nav-link active " aria-current="page" href="f1.html">News</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 60px">
+                            <a class="nav-link" href="Teams.html">Teams</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 60px">
+                            <a class="nav-link " href="driver1.html">Drivers</a>
+                        </li>
+                        <li class="nav-item dropdown" style="padding: 10px 60px">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Races
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Races.html">All Time Races</a></li>
+                                <li><a class="dropdown-item" href="Circuitos.html">Circuits Races</a></li>
+                            </ul>
+
+                        </li>
+
+                        <li class="nav-item" style=" padding: 10px 40px">
+                            <a class="nav-link" href="statistics.html">Statistics</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 40px ">
+                            <a class="nav-link" href="outrosCountries.html">Others</a>
+                        </li>
+                        <li class="nav-item" style=" padding: 10px 65px; border-right:1px solid; ">
+                            <a class="nav-link" href="bets.html">Bets</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <form>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <div id="alert_localemail" style="color:red" class="form-text d-none">That email is not valid</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <div id="alert_localpass" style="color:red" class="form-text d-none">That password is not valid(at least 8 letters and numbers(and a uppercase))</div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" ; for="exampleCheck1">I agree with the <a href="https://www.formula1.com/en/toolbar/legal-notices.html" style="color: red;">Terms and Conditions </a></label>
+                                <div id="alert_localcheck" style="color:red" class="form-text d-none">You need to agree with the terms and conditions</div>
+                            </div>
+
+                        </form>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div style="padding-right: 180px;">
+                    </div>
+                    <a href="f1.html" class="btn btn-secondary">Back to Menu</a>
+                    <button type="submit" id="validate" class="btn btn-danger">Done</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div>
+                        <div class="card text-center">
+
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <form class="row g-3" id="1">
+                                    <div class="col-md-3">
+                                        <label for="InputName" class="form-label">First name</label>
+                                        <input type="text" class="form-control" id="InputName" value="" required>
+                                        <div id="nomeError" style="color:red" class="form-text d-none">That Name is not valid</div>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="InputNamelast" class="form-label">Last name</label>
+                                        <input type="text" class="form-control" id="InputNamelast" value="" required>
+                                        <div id="nomelastError" style="color:red" class="form-text d-none">That Name is not valid</div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="inputcity" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="inputcity" required>
+                                        <div id="cityerror" style="color:red" class="form-text d-none">Insert a city</div>
+                                    </div>
+                                    <div class="col-md-6 selDiv">
+                                        <label for="validationDefaul" class="form-label">Contry</label>
+                                        <select class="form-select" id="validationDefaul" required>
+                                            <option value="null">Choose</option>
+                                            <option value="Afganistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                            <option value="American Samoa">American Samoa</option>
+                                            <option value="Andorra">Andorra</option>
+                                            <option value="Angola">Angola</option>
+                                            <option value="Anguilla">Anguilla</option>
+                                            <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                                            <option value="Argentina">Argentina</option>
+                                            <option value="Armenia">Armenia</option>
+                                            <option value="Aruba">Aruba</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Austria">Austria</option>
+                                            <option value="Azerbaijan">Azerbaijan</option>
+                                            <option value="Bahamas">Bahamas</option>
+                                            <option value="Bahrain">Bahrain</option>
+                                            <option value="Bangladesh">Bangladesh</option>
+                                            <option value="Barbados">Barbados</option>
+                                            <option value="Belarus">Belarus</option>
+                                            <option value="Belgium">Belgium</option>
+                                            <option value="Belize">Belize</option>
+                                            <option value="Benin">Benin</option>
+                                            <option value="Bermuda">Bermuda</option>
+                                            <option value="Bhutan">Bhutan</option>
+                                            <option value="Bolivia">Bolivia</option>
+                                            <option value="Bonaire">Bonaire</option>
+                                            <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+                                            <option value="Botswana">Botswana</option>
+                                            <option value="Brazil">Brazil</option>
+                                            <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                                            <option value="Brunei">Brunei</option>
+                                            <option value="Bulgaria">Bulgaria</option>
+                                            <option value="Burkina Faso">Burkina Faso</option>
+                                            <option value="Burundi">Burundi</option>
+                                            <option value="Cambodia">Cambodia</option>
+                                            <option value="Cameroon">Cameroon</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="Canary Islands">Canary Islands</option>
+                                            <option value="Cape Verde">Cape Verde</option>
+                                            <option value="Cayman Islands">Cayman Islands</option>
+                                            <option value="Central African Republic">Central African Republic</option>
+                                            <option value="Chad">Chad</option>
+                                            <option value="Channel Islands">Channel Islands</option>
+                                            <option value="Chile">Chile</option>
+                                            <option value="China">China</option>
+                                            <option value="Christmas Island">Christmas Island</option>
+                                            <option value="Cocos Island">Cocos Island</option>
+                                            <option value="Colombia">Colombia</option>
+                                            <option value="Comoros">Comoros</option>
+                                            <option value="Congo">Congo</option>
+                                            <option value="Cook Islands">Cook Islands</option>
+                                            <option value="Costa Rica">Costa Rica</option>
+                                            <option value="Cote DIvoire">Cote DIvoire</option>
+                                            <option value="Croatia">Croatia</option>
+                                            <option value="Cuba">Cuba</option>
+                                            <option value="Curaco">Curacao</option>
+                                            <option value="Cyprus">Cyprus</option>
+                                            <option value="Czech Republic">Czech Republic</option>
+                                            <option value="Denmark">Denmark</option>
+                                            <option value="Djibouti">Djibouti</option>
+                                            <option value="Dominica">Dominica</option>
+                                            <option value="Dominican Republic">Dominican Republic</option>
+                                            <option value="East Timor">East Timor</option>
+                                            <option value="Ecuador">Ecuador</option>
+                                            <option value="Egypt">Egypt</option>
+                                            <option value="El Salvador">El Salvador</option>
+                                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                            <option value="Eritrea">Eritrea</option>
+                                            <option value="Estonia">Estonia</option>
+                                            <option value="Ethiopia">Ethiopia</option>
+                                            <option value="Falkland Islands">Falkland Islands</option>
+                                            <option value="Faroe Islands">Faroe Islands</option>
+                                            <option value="Fiji">Fiji</option>
+                                            <option value="Finland">Finland</option>
+                                            <option value="France">France</option>
+                                            <option value="French Guiana">French Guiana</option>
+                                            <option value="French Polynesia">French Polynesia</option>
+                                            <option value="French Southern Ter">French Southern Ter</option>
+                                            <option value="Gabon">Gabon</option>
+                                            <option value="Gambia">Gambia</option>
+                                            <option value="Georgia">Georgia</option>
+                                            <option value="Germany">Germany</option>
+                                            <option value="Ghana">Ghana</option>
+                                            <option value="Gibraltar">Gibraltar</option>
+                                            <option value="Great Britain">Great Britain</option>
+                                            <option value="Greece">Greece</option>
+                                            <option value="Greenland">Greenland</option>
+                                            <option value="Grenada">Grenada</option>
+                                            <option value="Guadeloupe">Guadeloupe</option>
+                                            <option value="Guam">Guam</option>
+                                            <option value="Guatemala">Guatemala</option>
+                                            <option value="Guinea">Guinea</option>
+                                            <option value="Guyana">Guyana</option>
+                                            <option value="Haiti">Haiti</option>
+                                            <option value="Hawaii">Hawaii</option>
+                                            <option value="Honduras">Honduras</option>
+                                            <option value="Hong Kong">Hong Kong</option>
+                                            <option value="Hungary">Hungary</option>
+                                            <option value="Iceland">Iceland</option>
+                                            <option value="Indonesia">Indonesia</option>
+                                            <option value="India">India</option>
+                                            <option value="Iran">Iran</option>
+                                            <option value="Iraq">Iraq</option>
+                                            <option value="Ireland">Ireland</option>
+                                            <option value="Isle of Man">Isle of Man</option>
+                                            <option value="Israel">Israel</option>
+                                            <option value="Italy">Italy</option>
+                                            <option value="Jamaica">Jamaica</option>
+                                            <option value="Japan">Japan</option>
+                                            <option value="Jordan">Jordan</option>
+                                            <option value="Kazakhstan">Kazakhstan</option>
+                                            <option value="Kenya">Kenya</option>
+                                            <option value="Kiribati">Kiribati</option>
+                                            <option value="Korea North">Korea North</option>
+                                            <option value="Korea Sout">Korea South</option>
+                                            <option value="Kuwait">Kuwait</option>
+                                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                            <option value="Laos">Laos</option>
+                                            <option value="Latvia">Latvia</option>
+                                            <option value="Lebanon">Lebanon</option>
+                                            <option value="Lesotho">Lesotho</option>
+                                            <option value="Liberia">Liberia</option>
+                                            <option value="Libya">Libya</option>
+                                            <option value="Liechtenstein">Liechtenstein</option>
+                                            <option value="Lithuania">Lithuania</option>
+                                            <option value="Luxembourg">Luxembourg</option>
+                                            <option value="Macau">Macau</option>
+                                            <option value="Macedonia">Macedonia</option>
+                                            <option value="Madagascar">Madagascar</option>
+                                            <option value="Malaysia">Malaysia</option>
+                                            <option value="Malawi">Malawi</option>
+                                            <option value="Maldives">Maldives</option>
+                                            <option value="Mali">Mali</option>
+                                            <option value="Malta">Malta</option>
+                                            <option value="Marshall Islands">Marshall Islands</option>
+                                            <option value="Martinique">Martinique</option>
+                                            <option value="Mauritania">Mauritania</option>
+                                            <option value="Mauritius">Mauritius</option>
+                                            <option value="Mayotte">Mayotte</option>
+                                            <option value="Mexico">Mexico</option>
+                                            <option value="Midway Islands">Midway Islands</option>
+                                            <option value="Moldova">Moldova</option>
+                                            <option value="Monaco">Monaco</option>
+                                            <option value="Mongolia">Mongolia</option>
+                                            <option value="Montserrat">Montserrat</option>
+                                            <option value="Morocco">Morocco</option>
+                                            <option value="Mozambique">Mozambique</option>
+                                            <option value="Myanmar">Myanmar</option>
+                                            <option value="Nambia">Nambia</option>
+                                            <option value="Nauru">Nauru</option>
+                                            <option value="Nepal">Nepal</option>
+                                            <option value="Netherland Antilles">Netherland Antilles</option>
+                                            <option value="Netherlands">Netherlands (Holland, Europe)</option>
+                                            <option value="Nevis">Nevis</option>
+                                            <option value="New Caledonia">New Caledonia</option>
+                                            <option value="New Zealand">New Zealand</option>
+                                            <option value="Nicaragua">Nicaragua</option>
+                                            <option value="Niger">Niger</option>
+                                            <option value="Nigeria">Nigeria</option>
+                                            <option value="Niue">Niue</option>
+                                            <option value="Norfolk Island">Norfolk Island</option>
+                                            <option value="Norway">Norway</option>
+                                            <option value="Oman">Oman</option>
+                                            <option value="Pakistan">Pakistan</option>
+                                            <option value="Palau Island">Palau Island</option>
+                                            <option value="Palestine">Palestine</option>
+                                            <option value="Panama">Panama</option>
+                                            <option value="Papua New Guinea">Papua New Guinea</option>
+                                            <option value="Paraguay">Paraguay</option>
+                                            <option value="Peru">Peru</option>
+                                            <option value="Phillipines">Philippines</option>
+                                            <option value="Pitcairn Island">Pitcairn Island</option>
+                                            <option value="Poland">Poland</option>
+                                            <option value="Portugal">Portugal</option>
+                                            <option value="Puerto Rico">Puerto Rico</option>
+                                            <option value="Qatar">Qatar</option>
+                                            <option value="Republic of Montenegro">Republic of Montenegro</option>
+                                            <option value="Republic of Serbia">Republic of Serbia</option>
+                                            <option value="Reunion">Reunion</option>
+                                            <option value="Romania">Romania</option>
+                                            <option value="Russia">Russia</option>
+                                            <option value="Rwanda">Rwanda</option>
+                                            <option value="St Barthelemy">St Barthelemy</option>
+                                            <option value="St Eustatius">St Eustatius</option>
+                                            <option value="St Helena">St Helena</option>
+                                            <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                                            <option value="St Lucia">St Lucia</option>
+                                            <option value="St Maarten">St Maarten</option>
+                                            <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                                            <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+                                            <option value="Saipan">Saipan</option>
+                                            <option value="Samoa">Samoa</option>
+                                            <option value="Samoa American">Samoa American</option>
+                                            <option value="San Marino">San Marino</option>
+                                            <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                                            <option value="Saudi Arabia">Saudi Arabia</option>
+                                            <option value="Senegal">Senegal</option>
+                                            <option value="Seychelles">Seychelles</option>
+                                            <option value="Sierra Leone">Sierra Leone</option>
+                                            <option value="Singapore">Singapore</option>
+                                            <option value="Slovakia">Slovakia</option>
+                                            <option value="Slovenia">Slovenia</option>
+                                            <option value="Solomon Islands">Solomon Islands</option>
+                                            <option value="Somalia">Somalia</option>
+                                            <option value="South Africa">South Africa</option>
+                                            <option value="Spain">Spain</option>
+                                            <option value="Sri Lanka">Sri Lanka</option>
+                                            <option value="Sudan">Sudan</option>
+                                            <option value="Suriname">Suriname</option>
+                                            <option value="Swaziland">Swaziland</option>
+                                            <option value="Sweden">Sweden</option>
+                                            <option value="Switzerland">Switzerland</option>
+                                            <option value="Syria">Syria</option>
+                                            <option value="Tahiti">Tahiti</option>
+                                            <option value="Taiwan">Taiwan</option>
+                                            <option value="Tajikistan">Tajikistan</option>
+                                            <option value="Tanzania">Tanzania</option>
+                                            <option value="Thailand">Thailand</option>
+                                            <option value="Togo">Togo</option>
+                                            <option value="Tokelau">Tokelau</option>
+                                            <option value="Tonga">Tonga</option>
+                                            <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                                            <option value="Tunisia">Tunisia</option>
+                                            <option value="Turkey">Turkey</option>
+                                            <option value="Turkmenistan">Turkmenistan</option>
+                                            <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                                            <option value="Tuvalu">Tuvalu</option>
+                                            <option value="Uganda">Uganda</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="Ukraine">Ukraine</option>
+                                            <option value="United Arab Erimates">United Arab Emirates</option>
+                                            <option value="United States of America">United States of America</option>
+                                            <option value="Uraguay">Uruguay</option>
+                                            <option value="Uzbekistan">Uzbekistan</option>
+                                            <option value="Vanuatu">Vanuatu</option>
+                                            <option value="Vatican City State">Vatican City State</option>
+                                            <option value="Venezuela">Venezuela</option>
+                                            <option value="Vietnam">Vietnam</option>
+                                            <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                                            <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                                            <option value="Wake Island">Wake Island</option>
+                                            <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                                            <option value="Yemen">Yemen</option>
+                                            <option value="Zaire">Zaire</option>
+                                            <option value="Zambia">Zambia</option>
+                                            <option value="Zimbabwe">Zimbabwe</option>
+                                        </select>
+                                        <div id="selecterror" style="color:red" class="form-text d-none">Select one option</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputage" class="form-label">Age</label>
+                                        <input type="text" class="form-control" id="inputage">
+                                        <div id="ageerror" style="color:red" class="form-text d-none">Age is not valid</div>
+                                    </div>
+                                </form>
+                                <form class="was-validated">
+
+                                    <div class="mb-3">
+                                        <input type="file" class="form-control" aria-label="file example" required>
+                                        <div class="invalid-feedback">Example invalid form file feedback</div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div style="padding-right: 155px;">
+                        </div>
+                        <a href="f1.html" class="btn btn-secondary">Back to Menu</a>
+                        <button type="submit" id="validateup" class="btn btn-danger" onclick='validate()'>Done</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <div style="background-image:url('img/back (2).jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="card text-center" style="margin-top:50px">
+                    <div class="card-header" style="background-color: white;">
+                        <ul class="nav nav-pills card-header-pills" style="width: 100%;">
+                            <li class="nav-item">
+                                <a style="background-color: red;" id="filtro2" class="nav-link active" href="#">Bets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="color: red;" class="nav-link" href="#" id="filtro"><i class="fas fa-wallet"></i>  Wallet</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="card-body">
+
+
+                        <div class="card text-center">
+
+                            <div class="container d-none " id="row8" style="padding-top: 15px;">
+                                <div class="card border-danger mb-3">
+                                    <div class="card-body text-danger">
+                                        <h5 class="card-title"><span id="walletupdate">10</span>  <i class="fas fa-car-crash"></i></h5>
+                                        <p class="card-text">It´s only fictional money, risk it all!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body" id="row">
+                                <h5 class="card-title">You have 2 "bets of the day" and 1 personal bet each weekend, be cautious!</h5>
+                                <p class="card-text">
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="row1">
+
+
+                <div class="card mb-2" style="width: 50%;">
+                    <div class="row g-0">
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Hamilton in pole position!</h5>
+                                <p class="card-text">Bet of the day: Hamilton wins the pole at Silverstone! Bet 5 tokens to have a total of<b> 3 of odd</b></p>
+                                <button onclick="appendText(1)" id="adcionar" class="btn btn-danger ">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="card mb-2" style="width: 50%;" id="row2">
+                    <div class="row g-0">
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Verstappen in pole position!</h5>
+                                <p class="card-text">
+                                    Bet of the day: Verstappen wins the pole at Silverstone! Bet 5 tokens to have a total of<b> 3 of odd</b>
+                                </p>
+                                <a onclick="appendText(2)" id="adcionar1" class="btn btn-danger ">Add</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="container" id="row6">
+                <div class="card text-center">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Bet</h5>
+                        <p class="card-text">
+                            <select id="select1">
+                                <option value="1">Lewis Hamilton</option>
+                                <option value="2">Valtteri Bottas</option>
+                                <option value="3">Fernando Alonso</option>
+                                <option value="4">Esteban Ocon</option>
+                                <option value="5">Max Verstappen</option>
+                                <option value="6">Sergio Perez</option>
+                                <option value="7">Charles Leclerc</option>
+                                <option value="8">Carlos Sainz</option>
+                                <option value="9">Pierre Gasly</option>
+                                <option value="10">Yuki Tsunoda</option>
+                                <option value="11">Sebastian Vettel</option>
+                                <option value="12">Lance Stroll</option>
+                                <option value="13">Daniel Ricciardo</option>
+                                <option value="14">Lando Norris</option>
+                            </select> ends in <select id="select2">
+                                <option value="21">First</option>
+                                <option value="22">Second</option>
+                                <option value="23">Third</option>
+                                <option value="25">Fourth</option>
+                                <option value="26">Fifth</option>
+                                <option value="27">Sixth</option>
+                                <option value="28">Seventh</option>
+                                <option value="29">Eighth</option>
+                                <option value="30">Ninth</option>
+                                <option value="31">Tenth</option>
+
+                            </select> position at Silverstone!
+                        <p>
+                            <div id="row7" class="input-group" style="width:100%">
+
+                                <input type="text" class="form-control" id="guito" placeholder="Amount of Crashes">
+                                <span class="input-group-text" id="inputmoney" style="background-color: red; color: white;"><i class="fas fa-car-crash"></i></span>
+
+                                <span class="input-group-text" id="inputmoney" style="background-color: red; color: white;">Odd : <span id="oddchanger">1.00</span></i></span>
+                            </div>
+                            <div style="padding-top:15px ;">
+                                <a onclick="appendText(9)" id="adcionar8" class="btn btn-danger" style="background-color:red">Add</a>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container adicionado" id="adicionado" style="padding-top: 15px;">
+                <div class="card text-center">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Your Bet</h5>
+                        <div id="adicionaraposta">
+
+                        </div>
+                        <div class="card text-center">
+
+                            <div class="card-body">
+
+                                <a onclick="refresh()" class="btn btn-danger">Refresh</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card text-center d-none" id="refresh">
+                    <div class="card-body">
+                        <a onclick="refresh()" class="btn btn-danger">Refresh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center text-lg-start bg-white text-muted">
+
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+                        <div>
+                            <iframe width="350" height="280" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                    src="https://www.openstreetmap.org/export/embed.html?bbox=-8.662963807582857%2C40.63158680486605%2C-8.656767904758455%2C40.634114924693606&amp;layer=mapnik&amp;marker=40.63285291226819%2C-8.659527897834778"
+                                    style="border: 1px solid black"></iframe><br />
+                            <small>
+                                <a href="https://www.openstreetmap.org/?mlat=40.63285&amp;mlon=-8.65953#map=19/40.63285/-8.65953"
+                                   target="_blank">View Larger Map</a>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                        <h6 class="text-uppercase fw-bold mb-4" style="margin-top:30px">
+                            Partners
+                        </h6>
+                        <p>
+                            <img src="partners/crypto.png" style="height:75px" />
+                        </p>
+                        <p>
+                            <img src="partners/dhl.png" style="height:75px" />
+                        </p>
+                        <p>
+                            <img src="partners/emrates.png" style="height:75px" />
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 py-5">
+
+
+                        <p>
+                            <img src="partners/heineken.png" style="height: 75px" />
+                        </p>
+                        <p>
+                            <img src="partners/pirelli.png" style="height: 75px" />
+
+                        </p>
+                        <p>
+                            <img src="partners/rolex.png" style="height: 75px" />
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                <center>Feito com muito &#128150; por Tomás e Gonçalo </center>
+                © 2022
+                <a style="color: grey;" href="https://www.ua.pt">Universidade de Aveiro</a>
+
+            </div>
+
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+            integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
+            crossorigin="anonymous"></script>
+    <script>
+
+        var listids = []
+        var listbets = []
+
+
+
+        $(document).ready(function () {
+            $('#filtro').click(function () {
+                $('#row').hide();
+                $('#row1').hide();
+                $('#row2').hide();
+                $('#row3').hide();
+                $('#row4').hide();
+                $('#row5').hide();
+                $('#row6').hide();
+                $('#row8').removeClass('d-none')
+                $('#filtro').addClass('active');
+                $('#filtro2').removeClass('active');
+                $('#filtro2').css({ "color": "red", "background-color": "white" });
+                $('#filtro').css({ "color": "white", "background-color": "red" });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#filtro2').click(function () {
+                $('#row').show();
+                $('#row1').show();
+                $('#row2').show();
+                $('#row3').show();
+                $('#row4').show();
+                $('#row5').show();
+                $('#row6').show();
+                $('#row8').addClass('d-none')
+                $('#filtro').css({ "color": "red", "background-color": "white" });
+                $('#filtro2').css({ "color": "white", "background-color": "red" });
+            });
+            $('#staticBackdrop').modal('show')
+            $('#submit').click(function () {
+                console.log(retVal)
+                if (retVal == true) {
+                    $('#staticBackdrop2').modal('show')
+                    $('#staticBackdrop').modal('hide')
+                }
+            })
+        });
+
+
+        $(document).ready(function () {
+
+            $('#validate').click(function () {
+                var RetVal = true
+
+
+                // validaação email
+                var email = ($('#exampleInputEmail1').val());
+                var v = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (email.match(v)) {
+                    $('#alert_localemail').removeClass("d-block");
+                    $('#alert_localemail').addClass('d-none');
+                }
+                else {
+                    RetVal = false;
+                    $('#alert_localemail').addClass("d-block");
+                    $('#alert_localemail').removeClass('d-none');
+
+                }
+                // validação checkbox
+
+                if (document.querySelectorAll('input[type="checkbox"]:checked').length < 1) {
+                    retVal = false;
+                    $('#alert_localcheck').addClass("d-block");
+                    $('#alert_localcheck').removeClass('d-none');
+                }
+                else {
+                    $('#alert_localcheck').removeClass("d-block");
+                    $('#alert_localcheck').addClass('d-none');
+
+                }
+
+                // validação password
+                var pass = $('#exampleInputPassword1').val();
+                var a = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+                if (pass.match((a))) {
+                    $('#alert_localpass').removeClass("d-block");
+                    $('#alert_localpass').addClass('d-none');
+                }
+                else {
+                    RetVal = false;
+                    $('#alert_localpass').addClass("d-block");
+                    $('#alert_localpass').removeClass('d-none');
+
+
+                }
+                if (RetVal) {
+                    $('#staticBackdrop2').modal('show')
+                    $('#staticBackdrop').modal('hide')
+                }
+
+            })
+        })
+
+        $(document).ready(function () {
+            validate = function () {
+                var retVal = true;
+
+                // primeiro nome
+                var nome = $.trim($("#InputName").val()).length
+                if (nome < 2 || nome > 20) {
+                    $('#nomeError').removeClass('d-none');
+                    retVal = false;
+                }
+                else {
+                    $('#nomeError').addClass('d-none');
+                }
+                // ultimo nome
+                var last = $.trim($("#InputNamelast").val()).length
+                if (last < 2 || last > 20) {
+                    $('#nomelastError').removeClass('d-none');
+                    retVal = false;
+                }
+                else {
+                    $('#nomelastError').addClass('d-none');
+                }
+                // city
+                var last = $.trim($("#inputcity").val()).length
+                if (last < 2) {
+                    $('#cityerror').removeClass('d-none');
+                    retVal = false;
+                }
+                else {
+                    $('#cityerror').addClass('d-none');
+                }
+                // select
+                var option = $('#validationDefaul').find(":selected");
+                if (option.val() == 'null') {
+                    $('#selecterror').removeClass('d-none');
+                    retVal = false;
+                }
+                else {
+                    $('#selecterror').addClass('d-none');
+                }
+
+                //age
+
+                var last = ($("#inputage").val())
+                if (isNaN(last) || last < 18) {
+                    $('#ageerror').removeClass('d-none');
+                    retVal = false;
+                }
+                else {
+                    $('#ageerror').addClass('d-none');
+                }
+
+                if (retVal) {
+                    $('#staticBackdrop2').modal('hide')
+                }
+
+            }
+
+
+        });
+        function appendText(x) {
+            var val = document.getElementById('guito').value
+            var val2 = document.getElementById('oddchanger').innerHTML
+            var wll = document.getElementById('walletupdate').innerHTML
+            var wallet = parseFloat(wll)
+            switch (x) {
+                case 1:
+                    if (5 <= wallet) {
+                        wallet = wallet - 5
+                        document.getElementById('walletupdate').innerHTML = wallet
+                        var Retval3 = false
+                        var count = 1392141
+                        const newdiv = document.createElement('div')
+                        console.log("add")
+                        newdiv.classList.add("card");
+                        newdiv.classList.add("text-white");
+                        newdiv.classList.add("bg-danger");
+                        newdiv.id = 'add' + count
+                        document.getElementById("adicionaraposta").appendChild(newdiv);
+                        const newdiv2 = document.createElement('div')
+                        newdiv2.classList.add("card-header");
+                        newdiv2.innerHTML = "Bet"
+                        document.getElementById(newdiv.id).appendChild(newdiv2);
+                        const newdiv3 = document.createElement('div')
+                        newdiv3.classList.add("card-body");
+                        newdiv3.id = 'add' + (count + 1)
+                        document.getElementById(newdiv.id).appendChild(newdiv3);
+                        const newh5 = document.createElement('h5')
+                        newh5.classList.add("card-title");
+                        document.getElementById(newdiv3.id).appendChild(newh5);
+                        const newp = document.createElement('p')
+                        newp.classList.add('card-text')
+                        document.getElementById(newdiv3.id).appendChild(newp);
+                        var val = document.getElementById('guito').value
+                        var val2 = document.getElementById('oddchanger').innerHTML
+                        var valaposta = 0
+                        console.log(parseFloat(val))
+                        console.log(parseFloat(val2))
+                        listids.push(newdiv3.id)
+                        listbets.push(15)
+                        newp.innerHTML = "Lewis Hamilton" + " ends in " + "first" + " place"
+                        newh5.innerHTML = "5  ----> 15"
+                        $('#adcionar').addClass("d-none")
+                    }
+                    else {
+                        alert("não pode realizar essa ação")
+                        var Retval3 = false
+                    }
+                    break;
+                case 2:
+                    if (5 <= wallet) {
+                        wallet = wallet - 5
+                        document.getElementById('walletupdate').innerHTML = wallet
+                        var Retval3 = false
+                        var count = 10000
+                        const newdiv = document.createElement('div')
+                        console.log("add")
+                        newdiv.classList.add("card");
+                        newdiv.classList.add("text-white");
+                        newdiv.classList.add("bg-danger");
+                        newdiv.id = 'add' + count
+                        document.getElementById("adicionaraposta").appendChild(newdiv);
+                        const newdiv2 = document.createElement('div')
+                        newdiv2.classList.add("card-header");
+                        newdiv2.innerHTML = "Bet"
+                        document.getElementById(newdiv.id).appendChild(newdiv2);
+                        const newdiv3 = document.createElement('div')
+                        newdiv3.classList.add("card-body");
+                        newdiv3.id = 'add' + (count + 1)
+                        document.getElementById(newdiv.id).appendChild(newdiv3);
+                        const newh5 = document.createElement('h5')
+                        newh5.classList.add("card-title");
+                        document.getElementById(newdiv3.id).appendChild(newh5);
+                        const newp = document.createElement('p')
+                        newp.classList.add('card-text')
+                        document.getElementById(newdiv3.id).appendChild(newp);
+                        var val = document.getElementById('guito').value
+                        var val2 = document.getElementById('oddchanger').innerHTML
+                        var valaposta = 0
+                        console.log(parseFloat(val))
+                        console.log(parseFloat(val2))
+                        listids.push(newdiv3.id)
+                        listbets.push(15)
+                        newp.innerHTML = "Max Verstappen" + " ends in " + "first" + " place"
+                        newh5.innerHTML = "5  ----> 15"
+                        $('#adcionar1').addClass("d-none")
+                    }
+                    else {
+                        alert("não pode realizar essa ação")
+                        var Retval3 = false
+                    }
+                    break;
+
+                case 9:
+                    var wll = document.getElementById('walletupdate').innerHTML
+                    var wallet = parseFloat(wll)
+                    console.log(val)
+                    if (parseFloat(val) <= wallet) {
+                        $('#adcionar8').addClass("d-none")
+                        wallet = wallet - parseFloat(val)
+                        document.getElementById('walletupdate').innerHTML = wallet
+                        var Retval3 = true
+                    }
+                    else {
+                        alert("não pode realizar essa ação")
+                        var Retval3 = false
+                    }
+
+                    break;
+
+
+
+
+
+            }
+            if (Retval3 == true) {
+                var count = x
+                const newdiv = document.createElement('div')
+                console.log("add")
+                newdiv.classList.add("card");
+                newdiv.classList.add("text-white");
+                newdiv.classList.add("bg-danger");
+                newdiv.id = 'add' + count
+                document.getElementById("adicionaraposta").appendChild(newdiv);
+                const newdiv2 = document.createElement('div')
+                newdiv2.classList.add("card-header");
+                newdiv2.innerHTML = "Bet"
+                document.getElementById(newdiv.id).appendChild(newdiv2);
+                const newdiv3 = document.createElement('div')
+                newdiv3.classList.add("card-body");
+                newdiv3.id = 'add' + (count + 1)
+                document.getElementById(newdiv.id).appendChild(newdiv3);
+                const newh5 = document.createElement('h5')
+                newh5.classList.add("card-title");
+                document.getElementById(newdiv3.id).appendChild(newh5);
+                const newp = document.createElement('p')
+                newp.classList.add('card-text')
+                document.getElementById(newdiv3.id).appendChild(newp);
+                var val = document.getElementById('guito').value
+                var val2 = document.getElementById('oddchanger').innerHTML
+                var valaposta = 0
+                listids.push(newdiv3.id)
+                listbets.push((parseFloat(val2) * parseFloat(val)))
+                console.log(parseFloat(val))
+                console.log(parseFloat(val2))
+                newp.innerHTML = $('#select1').find(":selected").text() + " ends in " + $('#select2').find(":selected").text() + " place"
+                newh5.innerHTML = val + " ----> " + (parseFloat(val2) * parseFloat(val))
+            }
+
+        }
+        function refresh() {
+            var randomindex = Math.floor(Math.random() * listids.length);
+            var winningid = listids[randomindex]
+            $('#' + winningid).addClass("bg-success")
+            $('#walletupdate').text(parseFloat($('#walletupdate').text()) + listbets[randomindex])
+
+        }
+
+
+        $(document).ready(function () {
+
+            $('#select2').change(function () {
+
+                var sel1 = $('#select1').find(":selected")
+                var sel2 = $('#select2').find(":selected")
+                console.log(sel1.val() == 1, sel2.val() == 21)
+                var z = sel1.val()
+                console.log(z)
+                switch (z) {
+                    case "1":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("1.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("2.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("3.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("3.40");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("6.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "5":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("1.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("2.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("3.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("3.40");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("6.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "8":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "4":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.50");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.70");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.60");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("3.40");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("6.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+
+                    case "6":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.50");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.70");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.60");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("3.40");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("6.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "9":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("7.50");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("5.70");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("4.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("3.60");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.45");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("1.20");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("2.00");
+                            break;
+                        }
+                        break;
+                    case "7":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "2":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "2":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "3":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                        break;
+                    case "10":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("54.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("23.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("6.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.62");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("2.00");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        break;
+                    case "11":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("34.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("32.60");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("17.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("8.10");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("5.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("2.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("2,70");
+                            break;
+                        }
+                    case "3":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                    case "12":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("34.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("32.60");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("17.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("8.10");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("5.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("2.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("2,70");
+                            break;
+                        }
+                    case "3":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                    case "13":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("34.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("32.60");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("17.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("8.10");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("5.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("2.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("2,70");
+                            break;
+                        }
+                    case "3":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("4.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("3.00");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("2.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("1.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("5.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("10");
+                            break;
+                        }
+                    case "12":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("34.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("32.60");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("17.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("8.10");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("5.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("2.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("2,70");
+                            break;
+                        }
+                    case "13":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("3.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("2.32");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("1.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("5.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("15.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("20");
+                            break;
+                        }
+                    case "14":
+                        console.log(1)
+                        if (sel2.val() == "21" || sel2.val() == "22") {
+                            $('#oddchanger').text("3.70");
+                            break;
+                        }
+                        else if (sel2.val() == "23" || sel2.val() == "24") {
+                            $('#oddchanger').text("2.32");
+                            break;
+                        }
+                        else if (sel2.val() == "25" || sel2.val() == "26") {
+                            $('#oddchanger').text("1.20");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("2.40");
+                            break;
+                        }
+                        else if (sel2.val() == "27" || sel2.val() == "28") {
+                            $('#oddchanger').text("5.22");
+                            break;
+                        }
+                        else if (sel2.val() == "29" || sel2.val() == "30") {
+                            $('#oddchanger').text("15.40");
+                            break;
+
+                        }
+                        else if (sel2.val() == "31") {
+                            $('#oddchanger').text("20");
+                            break;
+                        }
+
+                }
+            })
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>
